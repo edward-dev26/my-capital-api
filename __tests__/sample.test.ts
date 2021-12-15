@@ -6,5 +6,5 @@ it('should send response text', async () => {
   console.log(response);
 
   expect(response.status).toEqual(200);
-  expect(response.text).toEqual('My Capital API');
+  expect(response.text).toEqual('My Capital API - deployed by github actions!');
 });
