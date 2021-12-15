@@ -32,7 +32,7 @@ jobs:
         run: npm run build
 
       - name: Create ZIP deployment package
-        run: cd ./dist && zip -r deploy_package.zip ./
+        run: zip -r deploy_package.zip dist package.json package-lock.json
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -42,7 +42,7 @@ jobs:
           aws-region: 'us-east-2'
 
       - name: Upload package to S3 bucket
-        run: aws s3 cp ./dist/deploy_package.zip s3://my-capital-api
+        run: aws s3 cp ./deploy_package.zip s3://my-capital-api
 
       - name: Create new ElasticBeanstalk Application Version
         run: |
